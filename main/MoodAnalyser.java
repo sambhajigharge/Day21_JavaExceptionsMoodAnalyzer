@@ -2,14 +2,13 @@ package MoodAnalyserProblem.main;
 
 public class MoodAnalyser {
 
-    public static String message;
+    private String message;
 
-    public MoodAnalyser() {
+    public MoodAnalyser(String message) throws MoodAnalyserException {
+        this.message = message;
     }
 
-    public MoodAnalyser(String message) {
-        this.message = message;
-        analyseMood();
+    public MoodAnalyser() {
 
     }
 
@@ -21,16 +20,15 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public static String analyseMood() {
+    public String analyseMood() throws MoodAnalyserException {
         try {
             if (message.toLowerCase().contains("sad")) {
                 return "SAD";
             } else {
                 return "HAPPY";
             }
-
         } catch (NullPointerException e) {
-            return "Happy";
+            throw new MoodAnalyserException("Entered Invalid Mood");
         }
     }
 }
