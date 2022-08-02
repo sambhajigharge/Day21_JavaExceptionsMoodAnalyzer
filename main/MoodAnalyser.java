@@ -1,7 +1,5 @@
 package MoodAnalyserProblem.main;
 
-import java.util.Locale;
-
 public class MoodAnalyser {
 
     public static String message;
@@ -32,7 +30,7 @@ public class MoodAnalyser {
             }
 
         } catch (NullPointerException e) {
-            return "Exception Handled";
+            return "Happy";
         }
     }
 }
