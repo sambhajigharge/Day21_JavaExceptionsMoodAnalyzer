@@ -4,21 +4,35 @@ import java.util.Locale;
 
 public class MoodAnalyser {
 
-    public static String analyseMood(String message) {
-        if (message.toLowerCase().contains("sad")) {
-            return "Sad";
-        } else if (message.toLowerCase().contains("happy")) {
-            return "Happy";
-        }
-        return null;
+    public static String message;
+
+    public MoodAnalyser() {
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Mood Analyser Program");
+    public MoodAnalyser(String message) {
+        this.message = message;
+        analyseMood();
 
-        String mood = MoodAnalyser.analyseMood("User is Happy");
-        System.out.println(mood);
-        mood = MoodAnalyser.analyseMood("User is Sad");
-        System.out.println(mood);
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public static String analyseMood() {
+        try {
+            if (message.toLowerCase().contains("sad")) {
+                return "SAD";
+            } else {
+                return "HAPPY";
+            }
+
+        } catch (NullPointerException e) {
+            return "Exception Handled";
+        }
     }
 }
